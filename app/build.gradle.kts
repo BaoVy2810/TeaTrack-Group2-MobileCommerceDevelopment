@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.teatrack_group2_mobilecommercedevelopment"
+    namespace = "com.teatrack.teatrack_group2_mobilecommercedevelopment"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
