@@ -20,31 +20,67 @@
 app/src/main/java/com.teatrack/
 │
 ├── client/                          # Phần khách hàng
-│   ├── auth/                        # Thanh Thanh — Login, Register, ForgotPassword, OtpActivity
-│   ├── home/                        # Bảo Vy     — HomeActivity, HomepageFragment, MenuFragment
-│   ├── product/                     # Bảo Vy     — ProductDetailActivity, CartActivity
-│   ├── checkout/                    # Bảo Vy     — CheckoutActivity, PaymentActivity
-│   ├── profile/                     # Thanh Thanh — UserProfileActivity, OrderHistoryActivity
-│   ├── tracking/                    # Thanh Thanh — OrderTrackingActivity
-│   ├── content/                     # Hồng Hạnh  — AboutActivity, AgencyActivity, BlogActivity, ContactActivity
-│   └── error/                       # Hồng Hạnh  — NotFoundActivity (404 client)
+│   ├── auth/                        # Thanh Thanh
+│   │   ├── LoginActivity
+│   │   ├── RegisterActivity
+│   │   ├── ForgotPasswordActivity
+│   │   └── OtpActivity
+│   ├── home/                        # Bảo Vy
+│   │   ├── HomeActivity
+│   │   └── MenuFragment
+│   ├── product/                     # Bảo Vy
+│   │   ├── ProductDetailActivity
+│   │   └── CartActivity
+│   ├── checkout/                    # Bảo Vy
+│   │   ├── CheckoutActivity
+│   │   └── PaymentActivity
+│   ├── profile/                     # Thanh Thanh
+│   │   ├── UserProfileActivity
+│   │   └── OrderHistoryActivity
+│   ├── tracking/                    # Thanh Thanh
+│   │   └── OrderTrackingActivity
+│   ├── content/                     # Hồng Hạnh
+│   │   ├── AboutUsActivity
+│   │   ├── AgencyActivity
+│   │   ├── BlogGeneralActivity
+│   │   ├── BlogDetailActivity
+│   │   └── ContactUsActivity
+│   └── error/                       # Hồng Hạnh
+│       └── NotFoundActivity
 │
 ├── admin/                           # Phần quản trị
-│   ├── auth/                        # Hoàng Đức  — AdminLoginActivity
-│   ├── dashboard/                   # Hoàng Đức  — AdminDashboardActivity
-│   ├── account/                     # Hoàng Đức  — AdminAccountActivity, AdminProfileActivity
-│   ├── product/                     # Hoàng Đức  — AdminProductActivity, OrdersActivity
-│   ├── content/                     # Trung Nhân — AgencyAdminActivity, BlogAdminActivity, PromotionActivity
-│   ├── support/                     # Trung Nhân — ContactActivity, ComplaintsActivity
-│   └── error/                       # Trung Nhân — Admin404Activity
+│   ├── auth/                        # Hoàng Đức
+│   │   └── AdminLoginActivity
+│   ├── dashboard/                   # Hoàng Đức
+│   │   └── AdminDashboardActivity
+│   ├── account/                     # Hoàng Đức
+│   │   ├── AdminAccountActivity
+│   │   └── AdminProfileActivity
+│   ├── product/                     # Hoàng Đức
+│   │   ├── AdminProductActivity
+│   │   └── OrdersActivity
+│   ├── content/                     # Trung Nhân
+│   │   ├── AgencyAdminActivity
+│   │   ├── BlogAdminActivity
+│   │   └── PromotionActivity
+│   ├── support/                     # Trung Nhân
+│   │   └── ContactComplaintsActivity
+│   └── error/                       # Trung Nhân
+│       └── Admin404Activity
 │
 └── shared/                          # Dùng chung cả 2 side
     ├── model/                       # User, Product, Order, Blog, Promotion...
     ├── api/                         # ApiService, RetrofitClient, ApiCallback
     ├── utils/                       # SessionManager, Constants, ImageUtils
-    └── ui/                          # BaseActivity, Header, Footer, ChatbotBubble
+    └── ui/                          # Hồng Hạnh
+        ├── BaseActivity
+        ├── HeaderFragment           # Header client/admin (before & after login)
+        ├── FooterFragment
+        └── ChatbotBubbleFragment
 
 app/src/main/res/
+├── drawable/
+│   └── icons/                       # Icon SVG/PNG toàn app
 ├── layout/
 │   ├── client/                      # File XML giao diện client
 │   └── admin/                       # File XML giao diện admin
@@ -56,14 +92,15 @@ app/src/main/res/
 
 ### Phân công theo folder
 
-| Folder | Người phụ trách |
-| --- | --- |
-| `client/auth/`, `client/profile/`, `client/tracking/` | Thanh Thanh |
-| `client/home/`, `client/product/`, `client/checkout/` | Bảo Vy |
-| `client/content/`, `client/error/`, `shared/ui/` | Hồng Hạnh |
-| `admin/auth/`, `admin/dashboard/`, `admin/account/`, `admin/product/` | Hoàng Đức |
-| `admin/content/`, `admin/support/`, `admin/error/` | Trung Nhân |
-| `shared/model/`, `shared/api/`, `shared/utils/` | Bảo Vy (lead) |
+| Folder | Người phụ trách | Màn hình |
+| --- | --- | --- |
+| `client/auth/` | Thanh Thanh | Đăng nhập, Đăng ký, Forgot password, OTP |
+| `client/profile/`, `client/tracking/` | Thanh Thanh | User profile, Order history, Order tracking, 404 client |
+| `client/home/`, `client/product/`, `client/checkout/` | Bảo Vy | Homepage, Menu, Product detail, Cart, Checkout, Payment |
+| `client/content/`, `client/error/`, `shared/ui/` | Hồng Hạnh | About us, Agency, Blog, Contact, Chatbot, Header, Footer, Email OTP |
+| `admin/auth/`, `admin/dashboard/`, `admin/account/`, `admin/product/` | Hoàng Đức | Admin login, Dashboard, Account, Profile, Product, Orders |
+| `admin/content/`, `admin/support/`, `admin/error/` | Trung Nhân | Agency admin, Blog admin, Contact/complaints, Promotion, Admin 404 |
+| `shared/model/`, `shared/api/`, `shared/utils/` | Bảo Vy (lead) | — |
 
 > **Lưu ý:** File XML layout đặt đúng subfolder (`layout/client/` hoặc `layout/admin/`) để tránh conflict khi merge.
 
