@@ -14,6 +14,61 @@
 
 ---
 
+## Folder Structure
+
+```
+app/src/main/java/com.teatrack/
+│
+├── client/                          # Phần khách hàng
+│   ├── auth/                        # Thanh Thanh — Login, Register, ForgotPassword, OtpActivity
+│   ├── home/                        # Bảo Vy     — HomeActivity, HomepageFragment, MenuFragment
+│   ├── product/                     # Bảo Vy     — ProductDetailActivity, CartActivity
+│   ├── checkout/                    # Bảo Vy     — CheckoutActivity, PaymentActivity
+│   ├── profile/                     # Thanh Thanh — UserProfileActivity, OrderHistoryActivity
+│   ├── tracking/                    # Thanh Thanh — OrderTrackingActivity
+│   ├── content/                     # Hồng Hạnh  — AboutActivity, AgencyActivity, BlogActivity, ContactActivity
+│   └── error/                       # Hồng Hạnh  — NotFoundActivity (404 client)
+│
+├── admin/                           # Phần quản trị
+│   ├── auth/                        # Hoàng Đức  — AdminLoginActivity
+│   ├── dashboard/                   # Hoàng Đức  — AdminDashboardActivity
+│   ├── account/                     # Hoàng Đức  — AdminAccountActivity, AdminProfileActivity
+│   ├── product/                     # Hoàng Đức  — AdminProductActivity, OrdersActivity
+│   ├── content/                     # Trung Nhân — AgencyAdminActivity, BlogAdminActivity, PromotionActivity
+│   ├── support/                     # Trung Nhân — ContactActivity, ComplaintsActivity
+│   └── error/                       # Trung Nhân — Admin404Activity
+│
+└── shared/                          # Dùng chung cả 2 side
+    ├── model/                       # User, Product, Order, Blog, Promotion...
+    ├── api/                         # ApiService, RetrofitClient, ApiCallback
+    ├── utils/                       # SessionManager, Constants, ImageUtils
+    └── ui/                          # BaseActivity, Header, Footer, ChatbotBubble
+
+app/src/main/res/
+├── layout/
+│   ├── client/                      # File XML giao diện client
+│   └── admin/                       # File XML giao diện admin
+└── values/
+    ├── colors_client.xml            # Theme màu client
+    ├── colors_admin.xml             # Theme màu admin
+    └── styles.xml
+```
+
+### Phân công theo folder
+
+| Folder | Người phụ trách |
+| --- | --- |
+| `client/auth/`, `client/profile/`, `client/tracking/` | Thanh Thanh |
+| `client/home/`, `client/product/`, `client/checkout/` | Bảo Vy |
+| `client/content/`, `client/error/`, `shared/ui/` | Hồng Hạnh |
+| `admin/auth/`, `admin/dashboard/`, `admin/account/`, `admin/product/` | Hoàng Đức |
+| `admin/content/`, `admin/support/`, `admin/error/` | Trung Nhân |
+| `shared/model/`, `shared/api/`, `shared/utils/` | Bảo Vy (lead) |
+
+> **Lưu ý:** File XML layout đặt đúng subfolder (`layout/client/` hoặc `layout/admin/`) để tránh conflict khi merge.
+
+---
+
 ## 1. Clone Repository
 
 ```bash
